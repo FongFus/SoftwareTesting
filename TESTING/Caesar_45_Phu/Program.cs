@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Caesar_45_Phu
+namespace SoftwareTesting
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Caesar_45_Phu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Caesar_45_Phu());
+            Application.Run(new SoftwareTesting());
         }
     }
 }

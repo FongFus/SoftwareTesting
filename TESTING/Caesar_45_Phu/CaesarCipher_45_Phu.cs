@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caesar_45_Phu
+namespace SoftwareTesting
 {
     public class CaesarCipher_45_Phu
     {

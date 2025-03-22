@@ -1,7 +1,7 @@
 ﻿
-namespace Caesar_45_Phu
+namespace SoftwareTesting
 {
-    partial class Caesar_45_Phu
+    partial class SoftwareTesting
     {
         /// <summary>
         /// Required designer variable.
@@ -140,7 +140,7 @@ namespace Caesar_45_Phu
             this.btnCancel_45_Phu.UseVisualStyleBackColor = true;
             this.btnCancel_45_Phu.Click += new System.EventHandler(this.btnCancel_45_Phu_Click);
             // 
-            // Caesar_45_Phu
+            // SoftwareTesting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,8 +155,8 @@ namespace Caesar_45_Phu
             this.Controls.Add(this.txtInput_45_Phu);
             this.Controls.Add(this.lbOutput_45_Phu);
             this.Controls.Add(this.lbInput_45_Phu);
-            this.Name = "Caesar_45_Phu";
-            this.Text = "Caesar_45_Phu";
+            this.Name = "SoftwareTesting";
+            this.Text = "SoftwareTesting";
             this.ResumeLayout(false);
             this.PerformLayout();
 

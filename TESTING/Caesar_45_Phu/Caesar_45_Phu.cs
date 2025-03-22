@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Caesar_45_Phu
+namespace SoftwareTesting
 {
-    public partial class Caesar_45_Phu : Form
+    public partial class SoftwareTesting : Form
     {
-        public Caesar_45_Phu()
+        public SoftwareTesting()
         {
             InitializeComponent();
         }

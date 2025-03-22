@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Windows.Forms;
-using Caesar_45_Phu;
+using SoftwareTesting;
 
-namespace UnitTestCaesar_45_Phu
+namespace UnitTestSoftwareTesting
 {
     [TestClass]
     public class UnitTest1

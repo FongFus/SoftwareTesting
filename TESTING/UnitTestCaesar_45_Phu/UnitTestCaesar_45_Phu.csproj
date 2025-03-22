@@ -61,12 +61,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Caesar_45_Phu\Caesar_45_Phu.csproj">
+    <ProjectReference Include="..\Caesar_45_Phu\SoftwareTesting.csproj">
       <Project>{c390c264-6c4f-4ebd-982c-d9c92b477da7}</Project>
-      <Name>Caesar_45_Phu</Name>
+      <Name>SoftwareTesting</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
