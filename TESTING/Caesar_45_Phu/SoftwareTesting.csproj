@@ -47,16 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CaesarCipher_45_Phu.cs" />
-    <Compile Include="Caesar_45_Phu.cs">
+    <Compile Include="Cipher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caesar_45_Phu.Designer.cs">
-      <DependentUpon>Caesar_45_Phu.cs</DependentUpon>
+    <Compile Include="Cipher.Designer.cs">
+      <DependentUpon>Cipher.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Caesar_45_Phu.resx">
-      <DependentUpon>Caesar_45_Phu.cs</DependentUpon>
+    <Compile Include="VigenereCipher_43_Nam.cs" />
+    <EmbeddedResource Include="Cipher.resx">
+      <DependentUpon>Cipher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

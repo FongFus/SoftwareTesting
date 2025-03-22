@@ -71,5 +71,50 @@ namespace SoftwareTesting
                 Application.Exit();
             }
         }
+
+
+        //========================================================================================================
+
+ 
+
+        private void btnEncrypt_43_Nam_Click(object sender, EventArgs e)
+        {
+            string inputText_43_Nam = txtInputVigenere_43_Nam.Text.Trim();
+            string key_43_Nam = txtKVigenere_43_Nam.Text.Trim();
+
+            try
+            {
+                txtOutputVigenere_43_Nam.Text = VigenereCipher_43_Nam.VigenereEncrypt(inputText_43_Nam, key_43_Nam);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnDecrypt_43_Nam_Click(object sender, EventArgs e)
+        {
+            string inputText = txtInputVigenere_43_Nam.Text.Trim();
+            string key = txtKVigenere_43_Nam.Text.Trim();
+
+            try
+            {
+                txtOutputVigenere_43_Nam.Text = VigenereCipher_43_Nam.VigenereDecrypt(inputText, key);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnReset_43_Nam_Click(object sender, EventArgs e)
+        {
+            txtInputVigenere_43_Nam.Clear();
+            txtKVigenere_43_Nam.Clear();
+            txtOutputVigenere_43_Nam.Clear();
+            txtInputVigenere_43_Nam.Focus();
+        }
+
+
     }
 }
