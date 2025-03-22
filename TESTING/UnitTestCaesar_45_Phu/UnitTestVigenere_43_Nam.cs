@@ -41,15 +41,13 @@ namespace UnitTestSoftwareTesting
         }
 
         [TestMethod]
-        public void TC03_43_Nam_VigenereEncrypt_EmptyString_ShouldReturnEmpty()
+        [ExpectedException(typeof(ArgumentException))]
+        public void TC03_43_Nam_VigenereEncrypt_EmptyString_ShouldThrowException()
         {
             string input = "";
             string key = "KEY";
-            string expectedOutput = "";
 
-            string actualOutput = VigenereCipher_43_Nam.VigenereEncrypt(input, key);
-
-            Assert.AreEqual(expectedOutput, actualOutput, "Mã hóa với chuỗi rỗng phải trả về rỗng.");
+            VigenereCipher_43_Nam.VigenereEncrypt(input, key);
         }
 
         [TestMethod]

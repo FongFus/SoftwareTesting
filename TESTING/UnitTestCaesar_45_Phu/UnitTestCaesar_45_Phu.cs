@@ -168,5 +168,18 @@ namespace UnitTestSoftwareTesting
             // Kiểm tra kết quả
             Assert.AreEqual(expected_45_Phu, actual_45_Phu, $"Input: {input_45_Phu}, K: {k_45_Phu}, Operation: {operation_45_Phu}");
         }
+
+        [TestMethod]
+        public void Test_CaesarCipher_Encrypt()
+        {
+            string plaintext = "HELLO";
+            int shift = 3;
+            string expected = "KHOOR"; // Dịch 3 ký tự
+
+            string actual = CaesarCipher_45_Phu.Encrypt_45_Phu(plaintext, shift);
+
+            Console.WriteLine($"🔹 Encrypt '{plaintext}' với shift {shift} → '{actual}'");
+            Assert.AreEqual(expected, actual, "Encrypt Caesar Cipher thất bại!");
+        }
     }
 }
