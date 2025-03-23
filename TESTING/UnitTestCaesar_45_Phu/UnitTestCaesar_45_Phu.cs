@@ -26,14 +26,15 @@ namespace UnitTestSoftwareTesting
             Assert.AreEqual(expected, actual, "Encryption with valid input failed.");
         }
 
-        // TC02_EP_EncryptInvalidShift_ThrowsException_45_Phu
+        // TC02_EP_EncryptNegativeShift_ReturnsExpected_45_Phu
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void TC02_EP_EncryptInvalidShift_ThrowsException_45_Phu()
+        public void TC02_EP_EncryptNegativeShift_ReturnsExpected_45_Phu()
         {
             string input = "HELLO";
-            int shift = -1; // Invalid shift
-            CaesarCipher_45_Phu.Encrypt_45_Phu(input, shift);
+            int shift = -3;
+            string expected = "EBIIL"; // Dịch trái 3 ký tự
+            string actual = CaesarCipher_45_Phu.Encrypt_45_Phu(input, shift);
+            Assert.AreEqual(expected, actual, "Encryption with negative shift failed.");
         }
 
         // TC03_BVA_EncryptMinShift_ReturnsExpected_45_Phu
@@ -80,14 +81,15 @@ namespace UnitTestSoftwareTesting
             Assert.AreEqual(input, decrypted, "Decryption after encryption failed.");
         }
 
-        // TC07_EP_DecryptInvalidShift_ThrowsException_45_Phu
+        // TC07_EP_DecryptNegativeShift_ReturnsExpected_45_Phu
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void TC07_EP_DecryptInvalidShift_ThrowsException_45_Phu()
+        public void TC07_EP_DecryptNegativeShift_ReturnsExpected_45_Phu()
         {
-            string input = "KHOOR";
-            int shift = -1; // Invalid shift
-            CaesarCipher_45_Phu.Decrypt_45_Phu(input, shift);
+            string input = "EBIIL";
+            int shift = -3;
+            string expected = "HELLO";
+            string actual = CaesarCipher_45_Phu.Decrypt_45_Phu(input, shift);
+            Assert.AreEqual(expected, actual, "Decryption with negative shift failed.");
         }
 
         // TC08_BVA_DecryptMinShift_ReturnsExpected_45_Phu

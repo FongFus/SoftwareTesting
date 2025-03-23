@@ -42,13 +42,11 @@ namespace SoftwareTesting
                 return false;
             }
 
-            if (!int.TryParse(txtK_45_Phu.Text, out k_45_Phu) || k_45_Phu < 0)
+            if (!int.TryParse(txtK_45_Phu.Text, out k_45_Phu))
             {
-                MessageBox.Show("Vui lòng nhập số nguyên dương cho khóa k!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                MessageBox.Show("Vui lòng nhập số nguyên cho khóa k!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
             return true;
         }
 
