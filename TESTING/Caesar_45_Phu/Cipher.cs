@@ -114,7 +114,5 @@ namespace SoftwareTesting
             txtOutputVigenere_43_Nam.Clear();
             txtInputVigenere_43_Nam.Focus();
         }
-
-
     }
 }

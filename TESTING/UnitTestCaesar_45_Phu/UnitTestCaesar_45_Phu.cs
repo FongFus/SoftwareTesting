@@ -6,7 +6,7 @@ using SoftwareTesting;
 namespace UnitTestSoftwareTesting
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestCaesar_45_Phu
     {
 
         [TestInitialize]
