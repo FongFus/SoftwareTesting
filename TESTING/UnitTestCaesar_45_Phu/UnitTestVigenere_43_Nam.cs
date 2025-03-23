@@ -19,7 +19,7 @@ namespace UnitTestSoftwareTesting
             string expectedOutput = "RIJVS";
 
             // Act
-            string actualOutput = VigenereCipher_43_Nam.VigenereEncrypt(input, key);
+            string actualOutput = VigenereCipher_43_Nam.VigenereEncrypt_43_Nam(input, key);
 
             // Assert
             Assert.AreEqual(expectedOutput, actualOutput, "Mã hóa Vigenère bị sai.");
@@ -34,7 +34,7 @@ namespace UnitTestSoftwareTesting
             string expectedOutput = "HELLO";
 
             // Act
-            string actualOutput = VigenereCipher_43_Nam.VigenereDecrypt(input, key);
+            string actualOutput = VigenereCipher_43_Nam.VigenereDecrypt_43_Nam(input, key);
 
             // Assert
             Assert.AreEqual(expectedOutput, actualOutput, "Giải mã Vigenère bị sai.");
@@ -47,7 +47,7 @@ namespace UnitTestSoftwareTesting
             string input = "";
             string key = "KEY";
 
-            VigenereCipher_43_Nam.VigenereEncrypt(input, key);
+            VigenereCipher_43_Nam.VigenereEncrypt_43_Nam(input, key);
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@ namespace UnitTestSoftwareTesting
             string input = "HELLO";
             string key = ""; // Khóa không hợp lệ
 
-            VigenereCipher_43_Nam.VigenereEncrypt(input, key);
+            VigenereCipher_43_Nam.VigenereEncrypt_43_Nam(input, key);
         }
     }
 }

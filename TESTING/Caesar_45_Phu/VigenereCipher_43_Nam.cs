@@ -10,7 +10,7 @@ namespace SoftwareTesting
     public class VigenereCipher_43_Nam
     {
         // Kiểm tra dữ liệu đầu vào
-        private static void ValidateVigenereInput(string text, string key)
+        private static void ValidateVigenereInput_43_Nam(string text, string key)
         {
             if (string.IsNullOrEmpty(key) || !System.Text.RegularExpressions.Regex.IsMatch(key, @"^[a-zA-Z]+$"))
             {
@@ -24,37 +24,37 @@ namespace SoftwareTesting
         }
 
         // Mã hóa Vigenère
-        public static string VigenereEncrypt(string text, string key)
+        public static string VigenereEncrypt_43_Nam(string text_43_Nam, string key_43_Nam)
         {
-            ValidateVigenereInput(text, key); // Kiểm tra đầu vào trước khi xử lý
+            ValidateVigenereInput_43_Nam(text_43_Nam, key_43_Nam); // Kiểm tra đầu vào trước khi xử lý
 
-            string result = "";
-            int keyIndex = 0;
-            key = key.ToUpper();
-            foreach (char c in text.ToUpper())
+            string result_43_Nam = "";
+            int keyIndex_43_Nam = 0;
+            key_43_Nam = key_43_Nam.ToUpper();
+            foreach (char c in text_43_Nam.ToUpper())
             {
-                int shift = key[keyIndex % key.Length] - 'A';
-                result += (char)('A' + (c - 'A' + shift) % 26);
-                keyIndex++;
+                int shift_43_Nam = key_43_Nam[keyIndex_43_Nam % key_43_Nam.Length] - 'A';
+                result_43_Nam += (char)('A' + (c - 'A' + shift_43_Nam) % 26);
+                keyIndex_43_Nam++;
             }
-            return result;
+            return result_43_Nam;
         }
 
         // Giải mã Vigenère
-        public static string VigenereDecrypt(string text, string key)
+        public static string VigenereDecrypt_43_Nam(string text_43_Nam, string key_43_Nam)
         {
-            ValidateVigenereInput(text, key); // Kiểm tra đầu vào trước khi xử lý
+            ValidateVigenereInput_43_Nam(text_43_Nam, key_43_Nam); // Kiểm tra đầu vào trước khi xử lý
 
-            string result = "";
-            int keyIndex = 0;
-            key = key.ToUpper();
-            foreach (char c in text.ToUpper())
+            string result_43_Nam = "";
+            int keyIndex_43_Nam = 0;
+            key_43_Nam = key_43_Nam.ToUpper();
+            foreach (char c in text_43_Nam.ToUpper())
             {
-                int shift = key[keyIndex % key.Length] - 'A';
-                result += (char)('A' + (c - 'A' - shift + 26) % 26);
-                keyIndex++;
+                int shift_43_Nam = key_43_Nam[keyIndex_43_Nam % key_43_Nam.Length] - 'A';
+                result_43_Nam += (char)('A' + (c - 'A' - shift_43_Nam + 26) % 26);
+                keyIndex_43_Nam++;
             }
-            return result;
+            return result_43_Nam;
         }
     }
 

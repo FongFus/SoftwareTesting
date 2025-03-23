@@ -82,7 +82,7 @@ namespace SoftwareTesting
 
             try
             {
-                txtOutputVigenere_43_Nam.Text = VigenereCipher_43_Nam.VigenereEncrypt(inputText_43_Nam, key_43_Nam);
+                txtOutputVigenere_43_Nam.Text = VigenereCipher_43_Nam.VigenereEncrypt_43_Nam(inputText_43_Nam, key_43_Nam);
             }
             catch (ArgumentException ex)
             {
@@ -97,7 +97,7 @@ namespace SoftwareTesting
 
             try
             {
-                txtOutputVigenere_43_Nam.Text = VigenereCipher_43_Nam.VigenereDecrypt(inputText, key);
+                txtOutputVigenere_43_Nam.Text = VigenereCipher_43_Nam.VigenereDecrypt_43_Nam(inputText, key);
             }
             catch (ArgumentException ex)
             {
