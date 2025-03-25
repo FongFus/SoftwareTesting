@@ -16,7 +16,7 @@ namespace SoftwareTesting
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SoftwareTesting());
+            Application.Run(new SoftwareTesting_43_45());
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SoftwareTesting
 {
-    public partial class SoftwareTesting : Form
+    public partial class SoftwareTesting_43_45 : Form
     {
-        public SoftwareTesting()
+        public SoftwareTesting_43_45()
         {
             InitializeComponent();
         }
