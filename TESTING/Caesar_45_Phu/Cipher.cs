@@ -70,10 +70,7 @@ namespace SoftwareTesting
             }
         }
 
-
         //========================================================================================================
-
- 
 
         private void btnEncrypt_43_Nam_Click(object sender, EventArgs e)
         {
