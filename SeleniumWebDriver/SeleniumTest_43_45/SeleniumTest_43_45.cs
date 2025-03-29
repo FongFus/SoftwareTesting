@@ -14,74 +14,60 @@ namespace SeleniumTest_43_45
         [TestInitialize]
         public void Setup_45_Phu()
         {
-            // Khởi tạo ChromeDriver thực tế
+            // Khởi tạo WebDriver cho Chrome
             driver_45_Phu = new ChromeDriver();
+            driver_45_Phu.Manage().Window.Maximize();
         }
 
         [TestMethod]
-        public void Test_SearchAndClick_Success_45_Phu()
+        public void TC_01_Open_Homepage_45_Phu()
         {
-            // Arrange
+            // Mở trang Cellphones
             driver_45_Phu.Navigate().GoToUrl("https://cellphones.com.vn/");
 
-            // Act
-            IWebElement searchInput_45_Phu = driver_45_Phu.FindElement(By.Id("inp$earch"));
-            searchInput_45_Phu.SendKeys("iPhone 16 Pro Max 256GB");
-            searchInput_45_Phu.SendKeys(Keys.Enter);
+            // Kiểm tra xem tiêu đề trang có chứa "CellphoneS" không
+            string pageTitle_45_Phu = driver_45_Phu.Title;
+            Assert.IsTrue(pageTitle_45_Phu.Contains("CellphoneS"), "Không thể mở trang chủ.");
+        }
 
-            Thread.Sleep(5000); // Chờ trang tải (có thể thay bằng WebDriverWait)
+        [TestMethod]
+        public void TC_02_Search_Product_45_Phu()
+        {
+            driver_45_Phu.Navigate().GoToUrl("https://cellphones.com.vn/");
 
-            IWebElement productLink_45_Phu = driver_45_Phu.FindElement(By.XPath("//a[@href='https://cellphones.com.vn/iphone-16-pro-max.html']"));
+            // Tìm ô tìm kiếm bằng ID
+            IWebElement searchBox_45_Phu = driver_45_Phu.FindElement(By.Id("inp$earch"));
+            searchBox_45_Phu.SendKeys("iPhone 16 Pro Max 256GB");
+
+            // Chờ trang tải kết quả (tạm dùng Sleep cho đơn giản)
+            Thread.Sleep(5000);
+
+            // Kiểm tra xem có sản phẩm nào xuất hiện trong kết quả tìm kiếm không
+            IWebElement firstProduct_45_Phu = driver_45_Phu.FindElement(By.XPath("//a[@href='/iphone-16-pro-max.html']"));
+            Assert.IsNotNull(firstProduct_45_Phu, "Không tìm thấy sản phẩm.");
+        }
+
+        [TestMethod]
+        public void TC_03_Click_On_Product_Link_45_Phu()
+        {
+            driver_45_Phu.Navigate().GoToUrl("https://cellphones.com.vn/");
+
+            IWebElement searchBox_45_Phu = driver_45_Phu.FindElement(By.Id("inp$earch"));
+            searchBox_45_Phu.SendKeys("iPhone 16 Pro Max 256GB");
+
+            // Đợi trang tải
+            Thread.Sleep(5000); 
+
+            // Nhấn vào sản phẩm
+            IWebElement productLink_45_Phu = driver_45_Phu.FindElement(By.XPath("//a[@href='/iphone-16-pro-max.html']"));
             productLink_45_Phu.Click();
 
-            // Assert
+            // Đợi trang tải
+            Thread.Sleep(5000); 
+
+            // Kiểm tra URL có đúng trang sản phẩm không
             string currentUrl_45_Phu = driver_45_Phu.Url;
-            Assert.IsTrue(currentUrl_45_Phu.Contains("iphone-16-pro-max"), "Không điều hướng đến trang sản phẩm mong muốn.");
-        }
-
-        [TestMethod]
-        public void Test_SearchAndClick_WithPopup_45_Phu()
-        {
-            // Arrange
-            driver_45_Phu.Navigate().GoToUrl("https://cellphones.com.vn/");
-
-            // Act
-            IWebElement searchInput_45_Phu = driver_45_Phu.FindElement(By.Id("inp$earch"));
-            searchInput_45_Phu.SendKeys("iPhone 16 Pro Max 256GB");
-            searchInput_45_Phu.SendKeys(Keys.Enter);
-
-            Thread.Sleep(5000); // Chờ trang tải
-
-            IWebElement productLink_45_Phu = driver_45_Phu.FindElement(By.XPath("//a[@href='https://cellphones.com.vn/iphone-16-pro-max.html']"));
-            bool isClickable_45_Phu = false;
-            int maxAttempts_45_Phu = 5;
-            int attempt_45_Phu = 0;
-
-            while (!isClickable_45_Phu && attempt_45_Phu < maxAttempts_45_Phu)
-            {
-                try
-                {
-                    productLink_45_Phu.Click();
-                    isClickable_45_Phu = true;
-                }
-                catch (ElementClickInterceptedException)
-                {
-                    IWebElement body_45_Phu = driver_45_Phu.FindElement(By.TagName("body"));
-                    body_45_Phu.Click(); // Nhấp để tắt popup
-                    Thread.Sleep(1000); // Chờ popup biến mất
-                    attempt_45_Phu++;
-                }
-            }
-
-            // Assert
-            if (isClickable_45_Phu)
-            {
-                Assert.IsTrue(driver_45_Phu.Url.Contains("iphone-16-pro-max"), "Không điều hướng đến trang sản phẩm sau khi xử lý popup.");
-            }
-            else
-            {
-                Assert.Fail("Không thể nhấp vào liên kết sản phẩm sau 5 lần thử.");
-            }
+            Assert.IsTrue(currentUrl_45_Phu.Contains("https://cellphones.com.vn/iphone-16-pro-max.html"), "Không mở đúng trang sản phẩm.");
         }
 
         [TestCleanup]

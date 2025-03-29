@@ -34,7 +34,7 @@ namespace SeleniumWebDriver
             // 
             // btn_iP_45_Phu
             // 
-            this.btn_iP_45_Phu.Location = new System.Drawing.Point(318, 142);
+            this.btn_iP_45_Phu.Location = new System.Drawing.Point(314, 147);
             this.btn_iP_45_Phu.Name = "btn_iP_45_Phu";
             this.btn_iP_45_Phu.Size = new System.Drawing.Size(117, 47);
             this.btn_iP_45_Phu.TabIndex = 0;
