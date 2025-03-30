@@ -24,24 +24,44 @@ namespace SeleniumWebDriver
 
         private void btn_iP_45_Phu_Click(object sender, EventArgs e)
         {
-            // Tạo một đối tượng driver_45_Phu kiểu IWebDriver để điều khiển trình duyệt Chrome
-            IWebDriver driver_45_Phu = new ChromeDriver();
+            try
+            {
+                // Khởi tạo ChromeDriver
+                IWebDriver driver_45_Phu = new ChromeDriver();
 
-            // Điều hướng trình duyệt đến URL Cellphones
-            driver_45_Phu.Navigate().GoToUrl("https://cellphones.com.vn/");
+                // Tạo đối tượng trang CellphoneS
+                CellphoneSPage_43_45 cellphonePage_45_Phu = new CellphoneSPage_43_45(driver_45_Phu);
 
-            // Tìm phần tử input có id "inp$earch" trên trang Cellphones (trường tìm kiếm)
-            IWebElement element_45_Phu = driver_45_Phu.FindElement(By.Id("inp$earch"));
+                // Mở trang chủ
+                cellphonePage_45_Phu.OpenHomePage_43_45();
 
-            // Gõ từ khóa vào ô tìm kiếm
-            element_45_Phu.SendKeys("iPhone 16 Pro Max 256GB");
+                // Tìm kiếm sản phẩm
+                cellphonePage_45_Phu.SearchProduct_45_Phu("iPhone 16 Pro Max 256GB");
 
-            // Chờ trang tải
-            Thread.Sleep(5000); 
+                // Xác định đường dẫn XPath của sản phẩm
+                string productXPath_45_Phu = "//a[@href='/iphone-16-pro-max.html']";
 
-            // Tìm liên kết sản phẩm bằng XPath
-            IWebElement productLink_45_Phu = driver_45_Phu.FindElement(By.XPath("//a[@href='/iphone-16-pro-max.html']"));
-            productLink_45_Phu.Click();
+                // Kiểm tra xem sản phẩm có hiển thị không
+                if (cellphonePage_45_Phu.IsProductDisplayed_45_Phu(productXPath_45_Phu))
+                {
+                    // Nhấp vào liên kết sản phẩm
+                    cellphonePage_45_Phu.ClickOnProduct_45_Phu(productXPath_45_Phu);
+
+                    // Tùy chọn: Xác minh URL sau khi nhấp
+                    string currentUrl_45_Phu = cellphonePage_45_Phu.GetCurrentUrl_45_Phu();
+                    MessageBox.Show($"Đã điều hướng đến: {currentUrl_45_Phu}");
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy sản phẩm!");
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+            }
 
         }
     }
