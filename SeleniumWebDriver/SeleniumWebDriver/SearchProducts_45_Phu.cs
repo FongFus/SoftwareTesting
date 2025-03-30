@@ -45,7 +45,7 @@ namespace SeleniumWebDriver
                 if (cellphonePage_45_Phu.IsProductDisplayed_45_Phu(productXPath_45_Phu))
                 {
                     // Nhấp vào liên kết sản phẩm
-                    cellphonePage_45_Phu.ClickOnProduct_45_Phu(productXPath_45_Phu);
+                    cellphonePage_45_Phu.Click_45_Phu(productXPath_45_Phu);
 
                     // Tùy chọn: Xác minh URL sau khi nhấp
                     string currentUrl_45_Phu = cellphonePage_45_Phu.GetCurrentUrl_45_Phu();
@@ -64,5 +64,56 @@ namespace SeleniumWebDriver
             }
 
         }
+
+
+        private void btn_Price_45_Phu_Click(object sender, EventArgs e)
+        {
+            IWebDriver driver_45_Phu = null;
+            try
+            {
+                driver_45_Phu = new ChromeDriver();
+                CellphoneSPage_43_45 cellphonePage_45_Phu = new CellphoneSPage_43_45(driver_45_Phu);
+
+                // Mở trang chủ
+                cellphonePage_45_Phu.OpenHomePage_43_45();
+                
+                // Mở dropdown khu vực
+                cellphonePage_45_Phu.OpenRegionDropdown_45_Phu();
+                // Xác định đường dẫn XPath của khu vực
+                // Lấy tên khu vực từ TextBox
+                string locationName_45_Phu = txtLocation_45_Phu.Text.Trim();
+                if (string.IsNullOrEmpty(locationName_45_Phu))
+                {
+                    MessageBox.Show("Vui lòng nhập tên khu vực vào TextBox!");
+                    return;
+                }
+
+                // Xác định đường dẫn XPath của khu vực dựa trên tên nhập vào
+                string locationXPath_45_Phu = $"//ul[@class='menu-list']//a[contains(normalize-space(),'{locationName_45_Phu}')]";
+
+                // Kiểm tra xem sản phẩm có hiển thị không
+                if (cellphonePage_45_Phu.IsProductDisplayed_45_Phu(locationXPath_45_Phu))
+                {
+                    // Nhấp vào liên kết sản phẩm
+                    cellphonePage_45_Phu.Click_45_Phu(locationXPath_45_Phu);
+
+                    
+                    MessageBox.Show($"Đã chọn khu vực thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy khu vực!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+            }
+            finally
+            {
+                driver_45_Phu?.Quit(); // Đảm bảo tài nguyên được giải phóng
+            }
+        }
+
     }
 }

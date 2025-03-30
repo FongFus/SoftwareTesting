@@ -193,8 +193,8 @@ namespace SeleniumTest_43_45
         public void TC_01_Open_Homepage_45_Phu()
         {
             page_43_45.OpenHomePage_43_45();
-            string pageTitle_43_Nam = page_43_45.GetPageTitle_45_Phu();
-            Assert.IsTrue(pageTitle_43_Nam.Contains("CellphoneS"), "Không thể mở trang chủ.");
+            string pageTitle_45_Phu = page_43_45.GetPageTitle_45_Phu();
+            Assert.IsTrue(pageTitle_45_Phu.Contains("CellphoneS"), "Không thể mở trang chủ.");
 
             Cleanup_43_45();
         }
@@ -204,8 +204,8 @@ namespace SeleniumTest_43_45
         {
             page_43_45.OpenHomePage_43_45();
             page_43_45.SearchProduct_45_Phu("iPhone 16 Pro Max 256GB");
-            bool isProductFound_43_Nam = page_43_45.IsProductDisplayed_45_Phu("//a[@href='/iphone-16-pro-max.html']");
-            Assert.IsTrue(isProductFound_43_Nam, "Không tìm thấy sản phẩm.");
+            bool isProductFound_45_Phu = page_43_45.IsProductDisplayed_45_Phu("//a[@href='/iphone-16-pro-max.html']");
+            Assert.IsTrue(isProductFound_45_Phu, "Không tìm thấy sản phẩm.");
 
             Cleanup_43_45();
         }
@@ -215,9 +215,9 @@ namespace SeleniumTest_43_45
         {
             page_43_45.OpenHomePage_43_45();
             page_43_45.SearchProduct_45_Phu("iPhone 16 Pro Max 256GB");
-            page_43_45.ClickOnProduct_45_Phu("//a[@href='/iphone-16-pro-max.html']");
-            string currentUrl_43_Nam = page_43_45.GetCurrentUrl_45_Phu();
-            Assert.IsTrue(currentUrl_43_Nam.Contains("https://cellphones.com.vn/iphone-16-pro-max.html"), "Không mở đúng trang sản phẩm.");
+            page_43_45.Click_45_Phu("//a[@href='/iphone-16-pro-max.html']");
+            string currentUrl_45_Phu = page_43_45.GetCurrentUrl_45_Phu();
+            Assert.IsTrue(currentUrl_45_Phu.Contains("https://cellphones.com.vn/iphone-16-pro-max.html"), "Không mở đúng trang sản phẩm.");
 
             Cleanup_43_45();
         }
@@ -243,6 +243,35 @@ namespace SeleniumTest_43_45
             Cleanup_43_45();
         }
 
+        [TestMethod]
+        public void TC_06_Choose_Location_45_Phu()
+        {
+            // Mở trang chủ
+            page_43_45.OpenHomePage_43_45();
+
+            // Lấy khu vực mặc định trước khi thay đổi
+            string defaultRegion_45_Phu = page_43_45.GetCurrentRegion_45_Phu();
+            Assert.IsFalse(string.IsNullOrEmpty(defaultRegion_45_Phu), "Không tìm thấy khu vực mặc định.");
+
+            // Mở dropdown khu vực
+            page_43_45.OpenRegionDropdown_45_Phu();
+
+            // Xác định XPath của khu vực "Hồ Chí Minh" trong dropdown
+            string locationXPath_45_Phu = "//ul[@class='menu-list']//a[contains(normalize-space(),'An Giang')]";
+
+            // Nhấn vào khu vực "Hồ Chí Minh"
+            page_43_45.Click_45_Phu(locationXPath_45_Phu);
+
+            // Lấy khu vực hiện tại sau khi chọn
+            string selectedRegion_45_Phu = page_43_45.GetCurrentRegion_45_Phu();
+
+            // Kiểm tra xem khu vực đã thay đổi thành "Hồ Chí Minh" chưa
+            Assert.AreEqual("An Giang", selectedRegion_45_Phu,
+                "Khu vực 'An Giang' không được chọn hoặc hiển thị đúng.");
+
+            // Dọn dẹp tài nguyên
+            Cleanup_43_45();
+        }
 
         public void Cleanup_43_45()
         {
