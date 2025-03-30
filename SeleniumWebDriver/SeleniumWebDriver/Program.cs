@@ -16,7 +16,9 @@ namespace SeleniumWebDriver
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SearchProducts_45_Phu());
+            //Application.Run(new SearchProducts_45_Phu());
+            Application.Run(new CellphoneS_43_Nam());
+
         }
     }
 }

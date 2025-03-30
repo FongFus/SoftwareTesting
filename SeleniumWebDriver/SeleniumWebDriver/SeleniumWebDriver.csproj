@@ -79,6 +79,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CellphoneSPage_43_45.cs" />
+    <Compile Include="CellphoneS_43_Nam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CellphoneS_43_Nam.Designer.cs">
+      <DependentUpon>CellphoneS_43_Nam.cs</DependentUpon>
+    </Compile>
     <Compile Include="SearchProducts_45_Phu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CellphoneS_43_Nam.resx">
+      <DependentUpon>CellphoneS_43_Nam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SearchProducts_45_Phu.resx">
       <DependentUpon>SearchProducts_45_Phu.cs</DependentUpon>
     </EmbeddedResource>
