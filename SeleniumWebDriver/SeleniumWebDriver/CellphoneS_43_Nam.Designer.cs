@@ -35,12 +35,14 @@ namespace SeleniumWebDriver
             this.lb_Email_43_Nam = new System.Windows.Forms.Label();
             this.lb_Phone_43_Nam = new System.Windows.Forms.Label();
             this.txt_Phone_43_Nam = new System.Windows.Forms.TextBox();
+            this.btn_FindProduct_43_Nam = new System.Windows.Forms.Button();
+            this.txt_ProductName_43_Nam = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_SelectStoreLocation_43_Nam
             // 
             this.btn_SelectStoreLocation_43_Nam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SelectStoreLocation_43_Nam.Location = new System.Drawing.Point(78, 136);
+            this.btn_SelectStoreLocation_43_Nam.Location = new System.Drawing.Point(270, 44);
             this.btn_SelectStoreLocation_43_Nam.Name = "btn_SelectStoreLocation_43_Nam";
             this.btn_SelectStoreLocation_43_Nam.Size = new System.Drawing.Size(172, 63);
             this.btn_SelectStoreLocation_43_Nam.TabIndex = 0;
@@ -95,11 +97,32 @@ namespace SeleniumWebDriver
             this.txt_Phone_43_Nam.Size = new System.Drawing.Size(273, 30);
             this.txt_Phone_43_Nam.TabIndex = 5;
             // 
+            // btn_FindProduct_43_Nam
+            // 
+            this.btn_FindProduct_43_Nam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_FindProduct_43_Nam.Location = new System.Drawing.Point(21, 202);
+            this.btn_FindProduct_43_Nam.Name = "btn_FindProduct_43_Nam";
+            this.btn_FindProduct_43_Nam.Size = new System.Drawing.Size(172, 63);
+            this.btn_FindProduct_43_Nam.TabIndex = 6;
+            this.btn_FindProduct_43_Nam.Text = "Tìm sản phẩm";
+            this.btn_FindProduct_43_Nam.UseVisualStyleBackColor = true;
+            this.btn_FindProduct_43_Nam.Click += new System.EventHandler(this.btn_FindProduct_43_Nam_Click);
+            // 
+            // txt_ProductName_43_Nam
+            // 
+            this.txt_ProductName_43_Nam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ProductName_43_Nam.Location = new System.Drawing.Point(21, 291);
+            this.txt_ProductName_43_Nam.Name = "txt_ProductName_43_Nam";
+            this.txt_ProductName_43_Nam.Size = new System.Drawing.Size(273, 30);
+            this.txt_ProductName_43_Nam.TabIndex = 7;
+            // 
             // CellphoneS_43_Nam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txt_ProductName_43_Nam);
+            this.Controls.Add(this.btn_FindProduct_43_Nam);
             this.Controls.Add(this.txt_Phone_43_Nam);
             this.Controls.Add(this.lb_Phone_43_Nam);
             this.Controls.Add(this.lb_Email_43_Nam);
@@ -121,5 +144,7 @@ namespace SeleniumWebDriver
         private System.Windows.Forms.Label lb_Email_43_Nam;
         private System.Windows.Forms.Label lb_Phone_43_Nam;
         private System.Windows.Forms.TextBox txt_Phone_43_Nam;
+        private System.Windows.Forms.Button btn_FindProduct_43_Nam;
+        private System.Windows.Forms.TextBox txt_ProductName_43_Nam;
     }
 }

@@ -73,17 +73,53 @@ namespace SeleniumWebDriver
                 // Chờ 2 giây trước khi kiểm tra để đảm bảo thông báo có đủ thời gian hiển thị
                 System.Threading.Thread.Sleep(2000);
 
-                bool isSubscribed = page_43_Nam.IsSubscriptionSuccessful_43_Nam(
+                bool isSubscribed_43_Nam = page_43_Nam.IsSubscriptionSuccessful_43_Nam(
                     "Cảm ơn Quý Khách đã đăng ký. CellphoneS sẽ gửi email kèm mã khuyến mãi nếu hợp lệ trong vòng 24h. Nhớ kiểm tra email bạn nhé!"
                 );
 
-                if (isSubscribed)
+                if (isSubscribed_43_Nam)
                 {
                     MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("Đăng ký không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                driver_45_Phu_43_Nam.Quit();
+            }
+        }
+
+        private void btn_FindProduct_43_Nam_Click(object sender, EventArgs e)
+        {
+            string productname_43_Nam = txt_ProductName_43_Nam.Text;
+            if (string.IsNullOrWhiteSpace(productname_43_Nam))
+            {
+                MessageBox.Show("Vui lòng nhập tên sản phẩm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            IWebDriver driver_45_Phu_43_Nam = new OpenQA.Selenium.Chrome.ChromeDriver();
+            try
+            {
+                CellphoneSPage_43_45 page_43_Nam = new CellphoneSPage_43_45(driver_45_Phu_43_Nam);
+                page_43_Nam.FindProductbyBrandandListByName_43_Nam(productname_43_Nam);
+
+                bool isFound = page_43_Nam.IsProductPageLoadedCorrectly_43_Nam(productname_43_Nam);
+
+                if (isFound)
+                {
+                    MessageBox.Show("Tìm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Tìm không thành công. Vui lòng thử tên khác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
