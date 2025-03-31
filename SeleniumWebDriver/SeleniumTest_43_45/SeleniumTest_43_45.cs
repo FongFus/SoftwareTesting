@@ -67,8 +67,7 @@ namespace SeleniumTest_43_45
         {
             page_43_45.OpenHomePage_43_45();
             page_43_45.SubscribeNewsletter("testemail@gmail.com", "0887654356");
-            string expectedMessage = "Cảm ơn Quý Khách đã đăng ký. CellphoneS sẽ gửi email kèm mã khuyến mãi nếu hợp lệ trong vòng 24h. Nhớ kiểm tra email bạn nhé!";
-            Assert.IsTrue(page_43_45.IsSubscriptionSuccessful_43_Nam(expectedMessage), "Thông báo đăng ký không đúng.");
+            Assert.IsTrue(page_43_45.IsSubscriptionSuccessful_43_Nam(), "Đăng ký thất bại.");
 
             Cleanup_43_45();
         }

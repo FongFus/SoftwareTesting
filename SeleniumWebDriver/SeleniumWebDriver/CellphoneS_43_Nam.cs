@@ -73,9 +73,7 @@ namespace SeleniumWebDriver
                 // Chờ 2 giây trước khi kiểm tra để đảm bảo thông báo có đủ thời gian hiển thị
                 System.Threading.Thread.Sleep(2000);
 
-                bool isSubscribed_43_Nam = page_43_Nam.IsSubscriptionSuccessful_43_Nam(
-                    "Cảm ơn Quý Khách đã đăng ký. CellphoneS sẽ gửi email kèm mã khuyến mãi nếu hợp lệ trong vòng 24h. Nhớ kiểm tra email bạn nhé!"
-                );
+                bool isSubscribed_43_Nam = page_43_Nam.IsSubscriptionSuccessful_43_Nam();
 
                 if (isSubscribed_43_Nam)
                 {
@@ -86,9 +84,9 @@ namespace SeleniumWebDriver
                     MessageBox.Show("Đăng ký không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đăng ký không thành công. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

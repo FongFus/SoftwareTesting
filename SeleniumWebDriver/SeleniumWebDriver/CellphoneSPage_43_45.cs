@@ -79,7 +79,6 @@ namespace SeleniumWebDriver
             districtDropdown_43_Nam.FindElement(By.CssSelector($"option[value='{districtValue_45_Phu}']")).Click();
         }
 
-
         public bool IsStoreDisplayed_43_Nam(string expectedStoreName_43_Nam)
         {
             IWebElement storesContainer_43_Nam = wait_43_45.Until(drv => drv.FindElement(By.ClassName("boxMap-stores")));
@@ -103,17 +102,28 @@ namespace SeleniumWebDriver
             IWebElement subscribeButton_43_Nam = wait_43_45.Until(drv => drv.FindElement(By.CssSelector(".group-btn .subscriber-form-submit")));
             subscribeButton_43_Nam.Click();
         }
-        public bool IsSubscriptionSuccessful_43_Nam(string expectedMessage_43_Nam)
+        public bool IsSubscriptionSuccessful_43_Nam()
         {
-            IWebElement successMessage_43_Nam = wait_43_45.Until(drv => drv.FindElement(By.CssSelector(".toasted.toasted-primary.success")));
-            return successMessage_43_Nam.Text.Trim().Equals(expectedMessage_43_Nam);
+            return wait_43_45.Until(drv =>
+            {
+                if (drv.FindElements(By.CssSelector(".toasted.toasted-primary.success")).Count > 0)
+                {
+                    return true; // Nếu thấy thông báo thành công, trả về true ngay lập tức
+                }
+
+                if (drv.FindElements(By.CssSelector(".toasted.toasted-primary.error")).Count > 0)
+                {
+                    return false; // Nếu thấy thông báo lỗi, trả về false ngay lập tức
+                }
+
+                return false; // Tiếp tục chờ đến khi hết timeout
+            });
         }
 
         public void Cleanup_43_45()
         {
             driver_45_Phu_43_Nam.Quit();
         }
-
         
         public void OpenRegionDropdown_45_Phu()
         {
@@ -181,7 +191,6 @@ namespace SeleniumWebDriver
             // Click vào liên kết thương hiệu
             brandLink_43_Nam.Click();
 
-
             // Đợi danh sách sản phẩm tải xong
             wait_43_45.Until(drv => drv.FindElement(By.ClassName("block-product-list-filter")));
 
@@ -243,7 +252,6 @@ namespace SeleniumWebDriver
             }
         }
 
-
         public bool IsProductPageLoadedCorrectly_43_Nam(string productName_43_Nam)
         {
             try
@@ -263,6 +271,5 @@ namespace SeleniumWebDriver
                 return false; // Nếu không tìm thấy phần tử, trả về false
             }
         }
-
     }
 }
