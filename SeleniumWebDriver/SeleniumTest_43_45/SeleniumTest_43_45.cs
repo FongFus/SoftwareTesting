@@ -83,7 +83,7 @@ namespace SeleniumTest_43_45
 
             page_43_45.OpenRegionDropdown_45_Phu();
 
-            // Xác định XPath của khu vực "Hồ Chí Minh" trong dropdown
+            // Xác định XPath của khu vực "An Giang" trong dropdown
             string locationXPath_45_Phu = "//ul[@class='menu-list']//a[contains(normalize-space(),'An Giang')]";
 
             page_43_45.Click_45_Phu(locationXPath_45_Phu);
@@ -91,7 +91,7 @@ namespace SeleniumTest_43_45
             // Lấy khu vực hiện tại sau khi chọn
             string selectedRegion_45_Phu = page_43_45.GetCurrentRegion_45_Phu();
 
-            // Kiểm tra xem khu vực đã thay đổi thành "Hồ Chí Minh" chưa
+            // Kiểm tra xem khu vực đã thay đổi thành "An Giang" chưa
             Assert.AreEqual("An Giang", selectedRegion_45_Phu,
                 "Khu vực 'An Giang' không được chọn hoặc hiển thị đúng.");
 
